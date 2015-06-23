@@ -1,0 +1,19 @@
+{
+  "name": "noderank-nightly",
+  "version": "0.0.5",
+  "description": "results from nightly run of noderank",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coyotebringsfire/noderank-nightly.git"
+  },
+  "author": "coyotebringsfire",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coyotebringsfire/noderank-nightly/issues"
+  },
+  "homepage": "https://github.com/coyotebringsfire/noderank-nightly#readme"
+}
