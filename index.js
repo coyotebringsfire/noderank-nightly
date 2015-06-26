@@ -1,1 +1,4 @@
-module.exports=require('./noderank.json');
+module.exports={ 
+	json:require('./noderank.json'), 
+	bucketify: require('./bucketify') 
+};
