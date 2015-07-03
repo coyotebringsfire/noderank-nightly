@@ -1,14 +1,16 @@
 var ss=require('simple-statistics'),
-	nr=require('./');
+	nr=require('./noderank.json');
 
 module.exports=function sortIntoBuckets() {
 	var values=[], stdDeviation, resultsToBeSorted=[], key, invertedResults={}, buckets={},
-		distance, chi;
+		distance, chi, debug=require('debug')("noderank-nightly:sortIntoBuckets");
+	debug("mixing-in simple-statistics");
 	ss.mixin();
-
+	debug("nr %j", nr);
 	for( key in nr ) {
 		resultsToBeSorted.push({module:key, rank:nr[key]});
 	}
+	debug("sorting");
 
 	resultsToBeSorted.sort(function(a,b) {
 		return b.rank-a.rank;
