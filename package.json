@@ -1,6 +1,6 @@
 {
   "name": "noderank-nightly",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "results from nightly run of noderank",
   "main": "index.js",
   "scripts": {
