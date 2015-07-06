@@ -3,7 +3,7 @@ var ss=require('simple-statistics'),
 
 module.exports=function sortIntoBuckets() {
 	var values=[], stdDeviation, resultsToBeSorted=[], key, invertedResults={}, buckets={},
-		distance, chi, debug=require('debug')("noderank-nightly:sortIntoBuckets");
+		distance, sigma, debug=require('debug')("noderank-nightly:sortIntoBuckets");
 	debug("mixing-in simple-statistics");
 	ss.mixin();
 	debug("nr %j", nr);
@@ -33,15 +33,11 @@ module.exports=function sortIntoBuckets() {
 		//calculate distance from the median
 		distance=resultsToBeSorted[mod].rank-median;
 		if(distance) {
-			chi=Math.ceil(Math.abs(distance/stdDeviation))*(distance/Math.abs(distance));
-			if( chi > 2 ) chi=2;
-			if( chi < -2) chi=-2;
-			if( !buckets[chi] )
-				buckets[chi]=[];
-			buckets[chi].push(resultsToBeSorted[mod]);
+			sigma=Math.ceil(Math.abs(distance/stdDeviation))*(distance/Math.abs(distance));
+			if( !buckets[sigma] )
+				buckets[sigma]=[];
+			buckets[sigma].push(resultsToBeSorted[mod]);
 		}
 	}
-
-	//the +2 chi bucket are the only ones we're going to gather git statistics for
 	return buckets;
 };
